@@ -66,6 +66,8 @@ const notify = async (notice) => {
             title: notice[0],
             content: notice.join('<br>'),
             template: 'markdown',
+            channel: 'wechat',
+            pre: ''
           }),
         })
       } else if (option.startsWith('qyweixin:')) {
