@@ -19,10 +19,16 @@ const glados = async () => {
         headers: { ...common },
       }).then((r) => r.json())
       if (status?.code) throw new Error(status?.message)
+      const points = await fetch('https://glados.cloud/api/user/points', {
+        method: 'GET',
+        headers: { ...common },
+      }).then((r) => r.json())
+      if (points?.code) throw new Error(status?.message)
       notice.push(
         'Checkin OK',
         `${action?.message}`,
-        `Left Days ${Number(status?.data?.leftDays)}`
+        `Left Days ${Number(status?.data?.leftDays)}`,
+        `Points ${Number(points?.points)}`
       )
     } catch (error) {
       notice.push(
