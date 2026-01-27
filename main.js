@@ -23,7 +23,7 @@ const glados = async () => {
         method: 'GET',
         headers: { ...common },
       }).then((r) => r.json())
-      if (points?.code) throw new Error(status?.message)
+      if (points?.code) throw new Error(points?.message)
       notice.push(
         'Checkin OK',
         `${action?.message}`,
